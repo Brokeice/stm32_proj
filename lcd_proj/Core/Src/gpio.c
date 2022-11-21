@@ -35,7 +35,7 @@
 /** Configure pins as
  * Analog
  * Input
- * Output
+ * Outputll
  * EVENT_OUT
  * EXTI
  */
@@ -51,32 +51,50 @@ void MX_GPIO_Init(void)
     __HAL_RCC_GPIOA_CLK_ENABLE();
 
     /*Configure GPIO pin Output Level */
-    HAL_GPIO_WritePin(GPIOE, DIN_Pin | DOUT_Pin | PENIRQ_Pin | DCLK_Pin | GPIO_PIN_1, GPIO_PIN_RESET);
+    HAL_GPIO_WritePin(GPIOE, XPT2046_SPI_MOSI_Pin | XPT2046_SPI_MISO_Pin | XPT2046_PENIRQ_GPIO_Pin | XPT2046_SPI_CLK_Pin | ILI9341_RST_PIN_Pin, GPIO_PIN_RESET);
 
     /*Configure GPIO pin Output Level */
-    HAL_GPIO_WritePin(GPIOB, led_g_Pin | led_b_Pin | GPIO_PIN_12 | GPIO_PIN_13 | led_r_Pin, GPIO_PIN_RESET);
+    HAL_GPIO_WritePin(GPIOB, LED_G_Pin | LED_B_Pin | GPIO_PIN_12 | GPIO_PIN_13 | LED_R_Pin, GPIO_PIN_RESET);
+
+    /*Configure GPIO pin Output Level */
+    HAL_GPIO_WritePin(GPIOD, XPT2046_SPI_CS_Pin, GPIO_PIN_RESET);
 
     /*Configure GPIO pins : PEPin PEPin PEPin PEPin
-                             PE1 */
-    GPIO_InitStruct.Pin = DIN_Pin | DOUT_Pin | PENIRQ_Pin | DCLK_Pin | GPIO_PIN_1;
+                            PEPin */
+    GPIO_InitStruct.Pin = XPT2046_SPI_MOSI_Pin | XPT2046_SPI_MISO_Pin | XPT2046_PENIRQ_GPIO_Pin | XPT2046_SPI_CLK_Pin | ILI9341_RST_PIN_Pin;
     GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
     HAL_GPIO_Init(GPIOE, &GPIO_InitStruct);
 
     /*Configure GPIO pins : PBPin PBPin PB12 PB13
-                             PBPin */
-    GPIO_InitStruct.Pin = led_g_Pin | led_b_Pin | GPIO_PIN_12 | GPIO_PIN_13 | led_r_Pin;
+                            PBPin */
+    GPIO_InitStruct.Pin = LED_G_Pin | LED_B_Pin | GPIO_PIN_12 | GPIO_PIN_13 | LED_R_Pin;
     GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
     HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+    /*Configure GPIO pins : PDPin PDPin */
+    GPIO_InitStruct.Pin = XPT2046_SPI_CS_Pin;
+    GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+    GPIO_InitStruct.Pull = GPIO_PULLUP;
+    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
+    HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
 }
 
 /* USER CODE BEGIN 2 */
 void led_toggle(void)
 {
-    HAL_GPIO_TogglePin(GPIOB, led_g_Pin);
+    HAL_GPIO_TogglePin(GPIOB, LED_G_Pin);
 }
 
-/* USER CODE END 2 */
+void GPIO_ResetBits(GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin)
+{
+    HAL_GPIO_WritePin(GPIOx, GPIO_Pin, GPIO_PIN_RESET);
+}
+
+void GPIO_SetBits(GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin)
+{
+    HAL_GPIO_WritePin(GPIOx, GPIO_Pin, GPIO_PIN_SET);
+}

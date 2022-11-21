@@ -122,7 +122,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
     HAL_UART_Receive_IT(&huart, &data, 1);
 }
 
-int _write(int fd, char *pbuf, int len)cd 
+int _write(int fd, char *pbuf, int len)
 {
     for (int i = 0; i < len; i++)
     {

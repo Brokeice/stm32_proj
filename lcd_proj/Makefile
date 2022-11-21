@@ -39,7 +39,9 @@ BUILD_DIR = build
 ######################################
 # C sources
 C_SOURCES =  \
+user/src/lcd.c \
 Core/Src/main.c \
+Core/Src/fonts.c \
 Core/Src/stm32f1xx_it.c \
 Core/Src/stm32f1xx_hal_msp.c \
 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c \
@@ -58,7 +60,6 @@ Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c \
 Core/Src/system_stm32f1xx.c \
 Core/Src/gpio.c \
 Core/Src/tim.c \
-Core/Src/fsmc.c \
 Core/Src/usart.c \
 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_fsmc.c \
 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_sram.c \
@@ -119,6 +120,7 @@ AS_INCLUDES =
 
 # C includes
 C_INCLUDES =  \
+-Iuser/inc \
 -ICore/Inc \
 -IDrivers/STM32F1xx_HAL_Driver/Inc \
 -IDrivers/STM32F1xx_HAL_Driver/Inc/Legacy \
