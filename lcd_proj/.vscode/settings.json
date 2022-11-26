@@ -2,7 +2,8 @@
     "files.associations": {
         "gpio.h": "c",
         "fsmc.h": "c",
-        "main.h": "c"
+        "main.h": "c",
+        "usart.h": "c"
     },
     "editor.defaultFormatter": "jaycetyle.vscode-gnu-global",
     "[c]": {

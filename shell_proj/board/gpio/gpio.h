@@ -41,6 +41,10 @@ void MX_GPIO_Init(void);
 /* USER CODE BEGIN Prototypes */
 void led_toggle(void);
 
+void GPIO_ResetBits(GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin);
+
+void GPIO_SetBits(GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin);
+
 /* USER CODE END Prototypes */
 
 #ifdef __cplusplus

@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "fsmc.h": "c",
+        "stdint.h": "c",
+        "gpio.h": "c"
+    }
+}

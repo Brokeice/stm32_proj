@@ -119,15 +119,15 @@ void HAL_UART_MspDeInit(UART_HandleTypeDef *uartHandle)
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
     uint8_t data = 0;
-    HAL_UART_Receive_IT(&huart, &data, 1);
+    HAL_UART_Receive_IT(huart, &data, 1);
 }
 
 int _write(int fd, char *pbuf, int len)
 {
     for (int i = 0; i < len; i++)
     {
-        while ((HAL_UART_GetState(&huart1)) & HAL_UART_STATE_BUSY_TX == HAL_UART_STATE_BUSY_TX);
-        HAL_UART_Transmit_IT(&huart1, &(pbuf[i]), 1);
+        while (((HAL_UART_GetState(&huart1)) & HAL_UART_STATE_BUSY_TX) == HAL_UART_STATE_BUSY_TX);
+        HAL_UART_Transmit_IT(&huart1, (uint8_t *)&(pbuf[i]), 1);
     }
 
     return len;

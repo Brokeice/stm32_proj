@@ -112,7 +112,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
     static uint32_t cnt = 0;
     if (htim->Instance == TIM2)
     {
-        if (cnt > 500)
+        if (cnt > 1000)
         {
             led_toggle();
             cnt = 0;

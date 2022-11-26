@@ -1,6 +1,12 @@
 {
     "files.associations": {
         "gpio.h": "c",
-        "stm32f1xx.h": "c"
+        "fsmc.h": "c",
+        "main.h": "c",
+        "usart.h": "c"
+    },
+    "editor.defaultFormatter": "jaycetyle.vscode-gnu-global",
+    "[c]": {
+        "editor.defaultFormatter": "ms-vscode.cpptools"
     }
 }

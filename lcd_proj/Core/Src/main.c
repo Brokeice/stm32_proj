@@ -78,14 +78,15 @@ int main(void)
     MX_USART1_UART_Init();
     HAL_TIM_Base_Start_IT(&htim2);
 
-    ILI9341_Init();
+    // ILI9341_Init();
 
-    ILI9341_GramScan(6);
+    // ILI9341_GramScan(6);
     while (1)
     {
-        uint32_t id = ILI9341_ReadID();
-        printf("draw, id = %d\r\n", id);
-        LCD_Test();
+        // uint32_t id = ILI9341_ReadID();
+        HAL_Delay(1000);
+        printf("hello world wanghao\r\n");
+        // LCD_Test();
     }
 }
 
