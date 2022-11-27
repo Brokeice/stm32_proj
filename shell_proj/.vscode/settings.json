@@ -3,7 +3,8 @@
         "gpio.h": "c",
         "fsmc.h": "c",
         "main.h": "c",
-        "usart.h": "c"
+        "usart.h": "c",
+        "stm32f1xx_hal.h": "c"
     },
     "editor.defaultFormatter": "jaycetyle.vscode-gnu-global",
     "[c]": {

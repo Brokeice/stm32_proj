@@ -26,15 +26,14 @@ extern "C" {
 #endif
 
 /* Includes ------------------------------------------------------------------*/
-#include "main.h"
+#include "stm32f1xx_hal.h"
 
-/* USER CODE BEGIN Includes */
+#define LED_G_Pin GPIO_PIN_0
+#define LED_G_GPIO_Port GPIOB
+#define LED_B_Pin GPIO_PIN_1
+#define LED_B_GPIO_Port GPIOB
+#define LED_R_Pin GPIO_PIN_5
 
-/* USER CODE END Includes */
-
-/* USER CODE BEGIN Private defines */
-
-/* USER CODE END Private defines */
 
 void MX_GPIO_Init(void);
 
