@@ -51,6 +51,10 @@ function parse_input_parameter()
                 then
                     MY_BUILD_TYPE="Debug"
                 fi
+                if [ ${arg,,} == "release" ]
+                then
+                    MY_BUILD_TYPE="Release"
+                fi
                 ;;
             "iap" | "noiap")
                 IAP_FLAG=${arg,,}
@@ -79,7 +83,8 @@ function build()
     cmake ../.. "-G" "Unix Makefiles" "-DMY_PROJECT_NAME:string="${PROJECT_NAME} " " \
     "-DCMAKE_IAP_TYPE:string="${IAP_FLAG}" " \
     "-DBUILD_TARGET_PLATFORM:string="${MY_BUILD_TARGET_PLATFORM}" " \
-    "-DCMAKE_VERBOSE_MAKEFILE:string="${MY_VERBOSE_MAKEFILE}
+    "-DCMAKE_VERBOSE_MAKEFILE:string="${MY_VERBOSE_MAKEFILE}" " \
+    "-DCMAKE_BUILD_TYPE:string="${MY_BUILD_TYPE}
     make -j6
 
     cd ${SHELL_DIR}
