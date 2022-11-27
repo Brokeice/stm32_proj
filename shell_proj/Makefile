@@ -55,7 +55,7 @@ C_SOURCES += $(wildcard \
 #@echo $(C_SOURCES)
 
 # ASM sources
-ASM_SOURCES =  ./library/CMSIS/SOURCE/Templates/gcc/startup_stm32f103xe.s
+ASM_SOURCES =  ./library/CMSIS/Device/ST/STM32F1xx/Source/Templates/gcc/startup_stm32f103xe.s
 
 
 #######################################
