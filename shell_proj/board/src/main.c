@@ -22,6 +22,7 @@
 #include "usart.h"
 #include "gpio.h"
 #include <stdio.h>
+#include "shell.h"
 
 
 /* Private function prototypes -----------------------------------------------*/

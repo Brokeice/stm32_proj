@@ -19,10 +19,10 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "usart.h"
+#include "ring_buffer.h"
+#include "errno.h"
 
-/* USER CODE BEGIN 0 */
-
-/* USER CODE END 0 */
+RING_BUF_DECLARE(uart_rx_buffer, 256);
 
 UART_HandleTypeDef huart1;
 
@@ -120,6 +120,8 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
     uint8_t data = 0;
     HAL_UART_Receive_IT(huart, &data, 1);
+
+    ring_buf_put(&uart_rx_buffer, &data, 1);
 }
 
 int _write(int fd, char *pbuf, int len)
@@ -131,4 +133,31 @@ int _write(int fd, char *pbuf, int len)
     }
 
     return len;
+}
+
+int _read(int fd, char *pbuf, int len)
+{
+    uint8_t data = 0;
+    uint8_t cnt = 0;
+
+    if(ring_buf_is_empty(&uart_rx_buffer))
+    {
+        return cnt;
+    }
+
+    for (uint8_t i = 0; i < len; i++)
+    {
+        if (ring_buf_get(&uart_rx_buffer, &data, 1))
+        {
+            pbuf[i] = data;
+            cnt++;
+        }
+
+        else
+        {
+            return cnt;
+        }
+    }
+
+    return cnt;
 }
