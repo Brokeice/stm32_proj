@@ -1,3 +1,0 @@
-/home/wanghao/github/stm32_f4/stm32_f4/threadx_base_proj/project/release/CMakeFiles/threax_base_proj.elf.dir
-/home/wanghao/github/stm32_f4/stm32_f4/threadx_base_proj/project/release/CMakeFiles/edit_cache.dir
-/home/wanghao/github/stm32_f4/stm32_f4/threadx_base_proj/project/release/CMakeFiles/rebuild_cache.dir
