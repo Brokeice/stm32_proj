@@ -1,8 +1,0 @@
-{
-    "files.associations": {
-        "includes.h": "c",
-        "bsp.h": "c",
-        "bsp_fmc_io.h": "c",
-        "tx_api.h": "c"
-    }
-}
