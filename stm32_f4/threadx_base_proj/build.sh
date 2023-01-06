@@ -101,7 +101,7 @@ function build()
 function clean()
 {
     rm -rf ${SHELL_DIR}/project/release
-    rm -f ${SHELL_DIR}/output/*
+    # rm -f ${SHELL_DIR}/output/*
 }
 
 function rebuild()
