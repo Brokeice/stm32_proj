@@ -32,7 +32,9 @@ extern "C" {
 #include "nx_stm32_eth_driver.h"
 
 /* USER CODE BEGIN Includes */
-
+#include <stdio.h>
+#include "main.h"
+#include "nxd_dhcp_client.h"
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
@@ -47,6 +49,21 @@ extern "C" {
 
 /* Exported macro ------------------------------------------------------------*/
 /* USER CODE BEGIN EM */
+#define PRINT_IP_ADDRESS(addr)             do { \
+                                                printf("STM32 %s: %lu.%lu.%lu.%lu \n", #addr, \
+                                                (addr >> 24) & 0xff, \
+                                                (addr >> 16) & 0xff, \
+                                                (addr >> 8) & 0xff, \
+                                                addr& 0xff);\
+                                           }while(0)
+
+#define PRINT_DATA(addr, port, data)       do { \
+                                                printf("[%lu.%lu.%lu.%lu:%u] -> '%s' \n", \
+                                                (addr >> 24) & 0xff, \
+                                                (addr >> 16) & 0xff, \
+                                                (addr >> 8) & 0xff,  \
+                                                (addr & 0xff), port, data); \
+                                           } while(0)
 
 /* USER CODE END EM */
 
@@ -59,7 +76,24 @@ UINT MX_NetXDuo_Init(VOID *memory_ptr);
 
 /* Private defines -----------------------------------------------------------*/
 /* USER CODE BEGIN PD */
+#define PAYLOAD_SIZE             1536
+#define NX_PACKET_POOL_SIZE      (( PAYLOAD_SIZE + sizeof(NX_PACKET)) * 10)
+#define WINDOW_SIZE              4320
 
+#define DEFAULT_MEMORY_SIZE      1024
+#define DEFAULT_PRIORITY         10
+
+#define LINK_PRIORITY            11
+
+#define NULL_ADDRESS             0
+
+#define DEFAULT_PORT             1001
+#define TCP_SERVER_PORT          6001
+#define TCP_SERVER_ADDRESS       IP_ADDRESS(192, 168, 28, 245)
+
+#define MAX_PACKET_COUNT         100
+#define DEFAULT_MESSAGE          "TCP Client on STM32F429"
+#define DEFAULT_TIMEOUT          10 * NX_IP_PERIODIC_RATE
 /* USER CODE END PD */
 
 /* USER CODE BEGIN 1 */

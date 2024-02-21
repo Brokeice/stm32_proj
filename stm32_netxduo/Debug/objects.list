@@ -108,6 +108,8 @@
 "./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.o"
 "./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_utils.o"
 "./Middlewares/ST/netxduo/addons/auto_ip/nx_auto_ip.o"
+"./Middlewares/ST/netxduo/addons/dhcp/nxd_dhcp_client.o"
+"./Middlewares/ST/netxduo/addons/dhcp/nxd_dhcpv6_client.o"
 "./Middlewares/ST/netxduo/common/drivers/ethernet/lan8742/nx_stm32_phy_driver.o"
 "./Middlewares/ST/netxduo/common/drivers/ethernet/nx_stm32_eth_driver.o"
 "./Middlewares/ST/netxduo/common/src/nx_arp_announce_send.o"

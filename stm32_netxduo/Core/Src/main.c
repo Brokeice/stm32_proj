@@ -27,6 +27,7 @@
 /* USER CODE BEGIN Includes */
 #include "bsp_fmc_io.h"
 #include "bsp_led.h"
+#include <stdio.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/

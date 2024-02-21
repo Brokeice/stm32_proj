@@ -15,6 +15,7 @@ RM := rm -rf
 -include Middlewares/ST/netxduo/common/src/subdir.mk
 -include Middlewares/ST/netxduo/common/drivers/ethernet/lan8742/subdir.mk
 -include Middlewares/ST/netxduo/common/drivers/ethernet/subdir.mk
+-include Middlewares/ST/netxduo/addons/dhcp/subdir.mk
 -include Middlewares/ST/netxduo/addons/auto_ip/subdir.mk
 -include Drivers/STM32F4xx_HAL_Driver/Src/Legacy/subdir.mk
 -include Drivers/STM32F4xx_HAL_Driver/Src/subdir.mk

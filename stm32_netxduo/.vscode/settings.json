@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "nx_stm32_eth_driver.h": "c",
+        "app_netxduo.h": "c",
+        "lan8742.h": "c"
+    }
+}

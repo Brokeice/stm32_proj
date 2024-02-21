@@ -119,8 +119,8 @@ int _write(int fd, char *pbuf, int len)
 {
     for (int i = 0; i < len; i++)
     {
-        while ((HAL_UART_GetState(&huart1) & HAL_UART_STATE_BUSY_TX) == HAL_UART_STATE_BUSY_TX);
-        HAL_UART_Transmit_IT(&huart1, (uint8_t*)&(pbuf[i]), 1);
+        // while ((HAL_UART_GetState(&huart1) & HAL_UART_STATE_BUSY_TX) == HAL_UART_STATE_BUSY_TX);
+        HAL_UART_Transmit(&huart1, (uint8_t*)&(pbuf[i]), 1, 50);
     }
 
     return len;
